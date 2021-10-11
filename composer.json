@@ -1,5 +1,5 @@
 {
-    "name": "chguoxi/my-laravel-admin",
+    "name": "chguoxi/laravel-admin",
     "description": "laravel admin",
     "type": "library",
     "keywords": ["laravel", "admin", "grid", "form"],
