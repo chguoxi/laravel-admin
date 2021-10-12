@@ -2,6 +2,7 @@
 
 namespace Encore\Admin;
 
+use Encore\Admin\Show\Button;
 use Encore\Admin\Show\Divider;
 use Encore\Admin\Show\Field;
 use Encore\Admin\Show\Panel;
@@ -54,6 +55,11 @@ class Show implements Renderable
     protected $fields;
 
     /**
+     * @var newline
+     */
+    protected $buttons;
+
+    /**
      * Relations to be show.
      *
      * @var Collection
@@ -96,6 +102,19 @@ class Show implements Renderable
         }
     }
 
+    public function addButton($text,$action,$type,$class=''){
+        $button = new Button($this,['text'=>$text,'action'=>$action,'type'=>$type,'class'=>$class]);
+
+        return tap($button, function ($field) {
+            $this->buttons->push($field);
+        });
+    }
+
+    public function button($text,$action,$type='button',$class='')
+    {
+        return $this->addButton($text, $action,$type,$class);
+    }
+
     /**
      * Initialize with user pre-defined default disables, etc.
      *
@@ -125,6 +144,7 @@ class Show implements Renderable
     protected function initContents()
     {
         $this->fields = new Collection();
+        $this->buttons = new Collection();
         $this->relations = new Collection();
     }
 
@@ -526,8 +546,9 @@ class Show implements Renderable
         $this->relations->each->setModel($this->model);
 
         $data = [
-            'panel'     => $this->panel->fill($this->fields),
+            'panel'     => $this->panel->fill($this->fields,$this->buttons),
             'relations' => $this->relations,
+            'buttons' => $this->buttons
         ];
 
         return view('admin::show', $data)->render();
