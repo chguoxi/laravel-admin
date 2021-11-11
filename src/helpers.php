@@ -363,29 +363,31 @@ if (!function_exists('admin_attrs')) {
     }
 }
 
-function admin_login_page_backgroud()
-{
-    if (config('admin.login_background_image')) {
-        $image = config('admin.login_background_image');
-    } else {
-        $hour = date('H');
+if(!function_exists('admin_login_page_backgroud')){
+    function admin_login_page_backgroud()
+    {
+        if (config('admin.login_background_image')) {
+            $image = config('admin.login_background_image');
+        } else {
+            $hour = date('H');
 
-        $index = 1;
+            $index = 1;
 
-        if ($hour > 8 && $hour < 18) {
-            $index = 2;
-        } elseif ($hour >= 18 && $hour < 20) {
-            $index = 3;
-        } elseif ($hour >= 20 || $hour <= 8) {
-            $index = 4;
+            if ($hour > 8 && $hour < 18) {
+                $index = 2;
+            } elseif ($hour >= 18 && $hour < 20) {
+                $index = 3;
+            } elseif ($hour >= 20 || $hour <= 8) {
+                $index = 4;
+            }
+
+            $image = "/vendor/laravel-admin/laravel-admin/images/login-bg{$index}.svg";
         }
 
-        $image = "/vendor/laravel-admin/laravel-admin/images/login-bg{$index}.svg";
+        return "style=\"background: url({$image}) no-repeat;background-size: cover;\"";
     }
 
-    return "style=\"background: url({$image}) no-repeat;background-size: cover;\"";
 }
-
 if (!function_exists('admin_view')) {
 
     /**
