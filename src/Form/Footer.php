@@ -26,7 +26,7 @@ class Footer implements Renderable
      *
      * @var array
      */
-    protected $buttons = ['reset', 'submit'];
+    protected $buttons = ['reset', 'submit','back'];
 
     /**
      * Available checkboxes.

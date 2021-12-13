@@ -28,5 +28,11 @@
             <button type="reset" class="btn btn-warning">{{ admin_trans('admin.reset') }}</button>
         </div>
         @endif
+
+        @if(in_array('back', $buttons))
+            <div class="btn-group float-left">
+                <button type="button" class="btn btn-info go-back">{{ admin_trans('admin.back') }}</button>
+            </div>
+        @endif
     </div>
 </div>
