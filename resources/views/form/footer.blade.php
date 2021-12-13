@@ -30,7 +30,7 @@
         @endif
 
         @if(in_array('back', $buttons))
-            <div class="btn-group float-left">
+            <div class="btn-group">
                 <button type="button" class="btn btn-info go-back">{{ admin_trans('admin.back') }}</button>
             </div>
         @endif
