@@ -30,7 +30,7 @@
                 @endif
 
                 @if(in_array('submit', $buttons))
-                <div class="btn-group float-right">
+                <div class="btn-group ">
                     <button type="submit" class="btn btn-@color float-right">{{ admin_trans('admin.submit') }}</button>
                 </div>
                 @endif
