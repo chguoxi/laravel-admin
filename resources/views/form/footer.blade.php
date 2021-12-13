@@ -6,7 +6,7 @@
     <div class="col-md-{{$width['field']}}">
 
         @if(in_array('submit', $buttons))
-        <div class="btn-group float-right">
+        <div class="btn-group">
             <button type="submit" class="btn btn-@color">{{ admin_trans('admin.submit') }}</button>
         </div>
 
