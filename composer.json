@@ -1,9 +1,9 @@
 {
-    "name": "encore/laravel-admin",
+    "name": "chguoxi/laravel-admin",
     "description": "laravel admin",
     "type": "library",
     "keywords": ["laravel", "admin", "table", "form"],
-    "homepage": "https://github.com/z-song/laravel-admin",
+    "homepage": "https://github.com/chguoxi/laravel-admin",
     "license": "MIT",
     "authors": [
         {
