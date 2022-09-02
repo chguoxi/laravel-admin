@@ -127,6 +127,11 @@ abstract class RowAction extends GridAction
     {
     }
 
+    public function getElementClass()
+    {
+        return parent::getElementClass().' action-item';
+    }
+
     /**
      * Render row action.
      *
