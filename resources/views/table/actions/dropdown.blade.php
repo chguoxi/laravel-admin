@@ -1,24 +1,15 @@
-<div class="table-dropdown-actions dropdown">
-    <a href="javascript:void(0);" style="padding: 0 10px;" data-toggle="dropdown">
-        <i class="fa fa-ellipsis-v"></i>
-    </a>
-    <div class="dropdown-menu dropdown-menu-right" style="min-width: 70px !important;box-shadow: 0 2px 3px 0 rgba(0,0,0,.2);top: 5px;">
-
-        @foreach($default as $action)
-            {!! $action->render() !!}
-        @endforeach
-
-        @if(!empty($custom))
-
-            @if(!empty($default))
-                <div class="divider"></div>
-            @endif
-
-            @foreach($custom as $action)
-               {!! $action->render() !!}
-            @endforeach
+<div class="table-actions">
+    @foreach($default as $action)
+        {!!$action->render()!!}
+    @endforeach
+    @if(!empty($custom))
+        @if(!empty($default))
+            <div> | </div>
         @endif
-    </div>
+        @foreach($custom as $action)
+            {!!$action->render()!!}
+        @endforeach
+    @endif
 </div>
 
 <script>
